@@ -30,12 +30,10 @@ function App() {
   return (
     <div className="columns is-desktop">
       <button className="button is-primary is-info" onClick={handleAdd}>
-        {" "}
-        Add Animal{" "}
+        Add Animal
       </button>
       <button className="button is-primary is-info" onClick={handleClear}>
-        {" "}
-        Clear animals{" "}
+        Clear animals
       </button>
       <div>{renderedAnimals}</div>
     </div>
