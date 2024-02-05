@@ -6,7 +6,7 @@ export default function ProfileCard({title, handle, image}) {
     <div className="card">
         <div className="card-image">
             <figure class="image is-4by3">
-            <img src={image} alt="Placeholder image"/>
+            <img src={image} alt=""/>
             </figure>
         </div>
         <div className="card-content">
