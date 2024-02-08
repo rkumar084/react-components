@@ -1,43 +1,17 @@
-import { useState } from "react";
 import BookCreate from "./components/BookCreate";
 import BooksGrid from "./components/BooksGrid";
+import BooksContext from "./context/booksContext";
+import { useContext } from "react";
 
 function BookOpsApp() {
-  const [books, setBooks] = useState([]);
-
-  const onCreate = (title) => {
-    //console.log(books.length);
-    setBooks([...books, {id:Math.round(Math.random()*10000), title}]);
-  };
-
-  const onDelete = (id) => {
-    console.log('deleting book id: ' + id);
-    const updatedBooks = books.filter((book) => {return id !== book.id;});
-    setBooks(updatedBooks);
-  };
-
-  const onEdit = (id, newTitle) => {
-    const updatedBooks = books.map((book) => {
-      if (book.id === id) {
-        return { ...book, title: newTitle };
-      }
-
-      return book;
-    });
-
-    setBooks(updatedBooks);
-  };
-
-  const onClear = () => {    
-    setBooks([]);
-  };
+  const { onClear } = useContext(BooksContext);
 
   return (
-    <div>      
+    <div>
       <div>
-        <BookCreate onCreate={onCreate} />
+        <BookCreate />
         <button onClick={onClear}>Clear!</button>
-        <BooksGrid books={books} onDelete={onDelete} onEdit={onEdit}/>
+        <BooksGrid />
       </div>
     </div>
   );

@@ -1,11 +1,15 @@
 import BookShow from "./BookShow";
+import BooksContext from "../context/booksContext";
+import { useContext } from "react";
+import "bulma/css/bulma.css";
 
-function BooksGrid({ books, onDelete, onEdit}) {
+function BooksGrid() {
+  const { books } = useContext(BooksContext);
   const renderedBooks = books.map((book) => (
-    <BookShow key={book.id} book={book} onDelete={onDelete} onEdit={onEdit}/>
+    <BookShow key={book.id} book={book}/>
   ));
 
-  return <div>{renderedBooks}</div>;
+  return <div className="tile">{renderedBooks}</div>;
 }
 
 export default BooksGrid;
